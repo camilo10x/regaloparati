@@ -77,15 +77,6 @@ section{position:relative;z-index:1}
 .section-label{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:2.2rem;display:flex;align-items:center;gap:1rem}
 .section-label::before,.section-label::after{content:'';flex:1;height:1px;background:var(--petal)}
 
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;background:linear-gradient(160deg,#fdf0ec 0%,#fdf8f4 60%,#f7ede8 100%)}
-.hero-eyebrow{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--rose);margin-bottom:1.6rem;opacity:0;animation:fadeUp 1s ease .3s forwards}
-.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.2rem,9vw,6.5rem);line-height:1.08;color:var(--deep);opacity:0;animation:fadeUp 1.1s ease .6s forwards}
-.hero h1 em{font-style:italic;color:var(--rose)}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,3vw,1.45rem);color:var(--muted);margin-top:1.5rem;max-width:480px;line-height:1.7;opacity:0;animation:fadeUp 1.1s ease .9s forwards}
-.divider{width:60px;height:1px;background:var(--rose);margin:2.5rem auto;opacity:0;animation:fadeUp 1s ease 1.1s forwards}
-.scroll-cue{margin-top:3rem;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);opacity:0;animation:fadeUp 1s ease 1.4s forwards}
-.scroll-cue span{display:block;width:1px;height:48px;background:var(--petal);margin:.8rem auto 0;animation:scrollLine 2s ease-in-out 2s infinite}
 
 /* ── COUNTER ── */
 .counter-section{padding:6rem 2rem;background:linear-gradient(160deg,#fdf0ec,#fdf8f4)}
@@ -262,16 +253,6 @@ section{position:relative;z-index:1}
 <!-- PETALS -->
 <canvas id="petals-canvas"></canvas>
 
-<!-- ════════════════════════════════════
-     HERO
-════════════════════════════════════ -->
-<section class="hero">
-  <p class="hero-eyebrow">Un regalo solo para ti</p>
-  <h1>Para <em>ti</em>,<br>mi amor</h1>
-  <p class="hero-sub">Cada día a tu lado es la página favorita de mi historia.</p>
-  <div class="divider"></div>
-  <p class="scroll-cue">Desliza hacia abajo <span></span></p>
-</section>
 
 <!-- ════════════════════════════════════
      COUNTERS
