@@ -1002,6 +1002,99 @@ function closeLightbox(e){
     document.getElementById('lightbox').classList.remove('open');
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+
+/* ════════════════════════════════
+   MUSIC PLAYER LOGIC
+════════════════════════════════ */
+(function(){
+  const playlist = [
+    "music/Juan-Vegas-Si-Dios-Me-Hubiera-Dicho-_Video-Oficial__2.mp3"
+  ];
+  
+  let currentIdx = 0;
+  let isPlaying = false;
+  
+  const audio = document.getElementById('audio-player');
+  const toggleBtn = document.getElementById('music-toggle');
+  const prevBtn = document.getElementById('music-prev');
+  const nextBtn = document.getElementById('music-next');
+  const trackName = document.getElementById('music-track-name');
+  const bars = document.getElementById('music-bars');
+  const barWrap = document.getElementById('music-bar');
+  const enterBtn = document.getElementById('enter-btn');
+  const splash = document.getElementById('splash');
+
+  if(!audio || playlist.length === 0) return;
+
+  function loadTrack(idx){
+    audio.src = playlist[idx];
+    let name = playlist[idx].split('/').pop().replace('.mp3', '').replace(/-/g, ' ');
+    if(name.length > 22) name = name.substring(0, 20) + '...';
+    if(trackName) trackName.textContent = '♪ ' + name;
+  }
+
+  function playTrack(){
+    audio.play().then(() => {
+      isPlaying = true;
+      if(bars) bars.classList.remove('paused');
+      const pauseIcon = document.getElementById('music-icon-pause');
+      const playIcon = document.getElementById('music-icon-play');
+      if(pauseIcon) pauseIcon.style.display = 'block';
+      if(playIcon) playIcon.style.display = 'none';
+    }).catch(e => {
+      print("Interacción directa requerida:", e);
+    });
+  }
+
+  function pauseTrack(){
+    audio.pause();
+    isPlaying = false;
+    if(bars) bars.classList.add('paused');
+    const pauseIcon = document.getElementById('music-icon-pause');
+    const playIcon = document.getElementById('music-icon-play');
+    if(pauseIcon) pauseIcon.style.display = 'none';
+    if(playIcon) playIcon.style.display = 'block';
+  }
+
+  if(toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      if(isPlaying) pauseTrack(); else playTrack();
+    });
+  }
+
+  if(prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentIdx = (currentIdx - 1 + playlist.length) % playlist.length;
+      loadTrack(currentIdx);
+      playTrack();
+    });
+  }
+
+  if(nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      currentIdx = (currentIdx + 1) % playlist.length;
+      loadTrack(currentIdx);
+      playTrack();
+    });
+  }
+
+  audio.addEventListener('ended', () => {
+    currentIdx = (currentIdx + 1) % playlist.length;
+    loadTrack(currentIdx);
+    playTrack();
+  });
+
+  loadTrack(currentIdx);
+  if(bars) bars.classList.add('paused');
+
+  if(enterBtn && splash){
+    enterBtn.addEventListener('click', () => {
+      playTrack();
+      splash.classList.add('hidden');
+      if(barWrap) barWrap.classList.add('visible');
+    });
+  }
+})();
 </script>
 </body>
 </html>
