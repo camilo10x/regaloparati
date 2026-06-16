@@ -4,7 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Para ti, mi amor</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+<!-- Agregamos fuentes de Google premium para mejorar drásticamente los contadores y títulos -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -77,29 +78,36 @@ section{position:relative;z-index:1}
 .section-label{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:2.2rem;display:flex;align-items:center;gap:1rem}
 .section-label::before,.section-label::after{content:'';flex:1;height:1px;background:var(--petal)}
 
-
-/* ── COUNTER ── */
+/* ── MEJORA 1: CONTADORES CON LETRA EXCLUSIVA Y ELEGANTE ── */
 .counter-section{padding:6rem 2rem;background:linear-gradient(160deg,#fdf0ec,#fdf8f4)}
 .counter-section .section-label{max-width:900px;margin:0 auto 3rem}
 .counter-wrap{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.counter-box{text-align:center}
-.counter-box-label{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:1.5rem}
-.counter-digits{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-.digit-unit{text-align:center}
-.digit-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:300;color:var(--deep);line-height:1;min-width:3ch;display:block}
-.digit-lbl{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
-.counter-sub{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);margin-top:1.5rem;font-size:1rem}
+.counter-box{text-align:center;background:rgba(255,255,255,0.4);padding:2rem 1.5rem;border-radius:16px;box-shadow:0 10px 30px rgba(122,63,58,0.03);border:1px solid rgba(232,201,196,0.3)}
+.counter-box-label{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--deep);font-weight:700;margin-bottom:1.5rem}
+.counter-digits{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap}
+.digit-unit{text-align:center;min-width:65px}
+
+/* Fuente exclusiva 'Cinzel' con un sutil brillo premium para los números */
+.digit-num{
+  font-family:'Cinzel', serif;
+  font-size:clamp(2.4rem, 5.5vw, 3.8rem);
+  font-weight:600;
+  color:var(--deep);
+  line-height:1;
+  display:block;
+  text-shadow: 1px 2px 4px rgba(122,63,58,0.15);
+  letter-spacing: -0.02em;
+}
+.digit-lbl{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;font-weight:400}
+.counter-sub{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);margin-top:1.5rem;font-size:1.05rem}
 @media(max-width:580px){.counter-wrap{grid-template-columns:1fr;gap:2.5rem}}
 
-/* ── QUOTES ── */
+/* ── MEJORA 3: FRASES CON MÁS ESPACIO Y MEJOR TRANSICIÓN ── */
 .quotes-section{padding:6rem 2rem;background:var(--cream)}
 .quotes-section .section-label{max-width:680px;margin:0 auto 2.5rem}
-.quote-display{max-width:620px;margin:0 auto;text-align:center;min-height:120px;display:flex;align-items:center;justify-content:center}
-.quote-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3.5vw,1.9rem);color:var(--deep);line-height:1.6;transition:opacity .6s ease,transform .6s ease}
-.quote-text.fade-out{opacity:0;transform:translateY(8px)}
-.quote-dots{display:flex;justify-content:center;gap:.5rem;margin-top:2rem}
-.quote-dot{width:6px;height:6px;border-radius:50%;background:var(--petal);cursor:pointer;transition:background .3s,transform .3s}
-.quote-dot.active{background:var(--rose);transform:scale(1.3)}
+.quote-display{max-width:720px;margin:0 auto;text-align:center;min-height:130px;display:flex;align-items:center;justify-content:center}
+.quote-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.35rem,3.8vw,2rem);color:var(--deep);line-height:1.65;transition:opacity .5s ease,transform .5s ease}
+.quote-text.fade-out{opacity:0;transform:translateY(10px)}
 
 /* ── LETTER ── */
 .letter-section{padding:7rem 2rem;max-width:680px;margin:0 auto}
@@ -109,38 +117,61 @@ section{position:relative;z-index:1}
 .letter-wrap p:last-child{margin-bottom:0}
 .letter-signature{margin-top:2.5rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;color:var(--rose);text-align:right}
 
-/* ── GALLERY (Polaroid Slider) ── */
-.gallery-section{padding:7rem 2rem;background:#fdf0ec;overflow:hidden}
-.gallery-section .section-label{max-width:900px;margin:0 auto 3.5rem}
-.gallery-slider{position:relative;max-width:900px;margin:0 auto}
-.gallery-track-wrap{overflow:hidden;border-radius:2px}
-.gallery-track{display:flex;gap:1.8rem;transition:transform .6s cubic-bezier(.25,.46,.45,.94);padding:.5rem .5rem 2rem}
-.polaroid{
-  flex-shrink:0;width:260px;
-  background:var(--white);
-  padding:1rem 1rem 2.8rem;
-  box-shadow:0 4px 20px rgba(122,63,58,.10),0 1px 4px rgba(122,63,58,.06);
-  cursor:pointer;
-  transform:rotate(var(--tilt));
-  transition:transform .35s ease,box-shadow .35s ease;
+/* ── MEJORA 4: GALERÍA CON DINAMISMO VERTICAL MASONRY PURO ── */
+.gallery-section{padding:7rem 2rem;background:#fdf0ec}
+.gallery-section .section-label{max-width:1100px;margin:0 auto 3.5rem}
+.masonry-container {
+  max-width:1100px;
+  margin:0 auto;
+  column-count: 3;
+  column-gap: 1.8rem;
 }
-.polaroid:hover{transform:rotate(0deg) translateY(-8px) scale(1.03);box-shadow:0 12px 36px rgba(122,63,58,.18)}
-.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.polaroid-cap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;color:var(--muted);text-align:center;margin-top:.8rem;line-height:1.4}
-.gallery-arrow{
-  position:absolute;top:50%;transform:translateY(-50%);
-  background:rgba(253,248,244,.92);backdrop-filter:blur(8px);
-  border:1px solid var(--petal);border-radius:50%;
-  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
-  cursor:pointer;color:var(--rose);transition:all .25s;z-index:2;
-  box-shadow:0 2px 12px rgba(122,63,58,.1);
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.8rem;
+  display: block;
 }
-.gallery-arrow:hover{background:var(--white);box-shadow:0 4px 20px rgba(122,63,58,.16)}
-.gallery-arrow.prev{left:-22px}
-.gallery-arrow.next{right:-22px}
-.gallery-dots{display:flex;justify-content:center;gap:.5rem;margin-top:2rem}
-.gallery-dot{width:6px;height:6px;border-radius:50%;background:var(--petal);cursor:pointer;transition:all .3s}
-.gallery-dot.active{background:var(--rose);width:20px;border-radius:4px}
+.polaroid {
+  background: var(--white);
+  padding: 1rem 1rem 2.2rem;
+  box-shadow: 0 4px 20px rgba(122,63,58,.08), 0 1px 4px rgba(122,63,58,.04);
+  cursor: pointer;
+  transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow .4s ease;
+  width: 100%;
+}
+/* Efectos dinámicos en hover para simular una experiencia inmersiva */
+.polaroid:hover {
+  transform: translateY(-10px) scale(1.03) rotate(1deg);
+  box-shadow: 0 15px 40px rgba(122,63,58,.16);
+  z-index: 5;
+}
+/* Forzamos que se mantengan verticales respetando las proporciones reales sin deformar */
+.polaroid img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  border-radius: 1px;
+}
+.polaroid-cap {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .98rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+@media(max-width:900px){
+  .masonry-container { column-count: 2; column-gap: 1.4rem; }
+  .masonry-item { margin-bottom: 1.4rem; }
+}
+@media(max-width:550px){
+  .masonry-container { column-count: 1; }
+}
 
 /* ── CONSTELLATION ── */
 .constellation-section{padding:0;background:var(--night);position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -163,16 +194,61 @@ section{position:relative;z-index:1}
 .legend-dot.moon{background:#e8e4f0;box-shadow:0 0 8px #e8e4f0}
 .const-hint{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#6660a0;text-align:center;padding-bottom:1.5rem;z-index:2;position:relative}
 
-/* ── TREE ── */
-.tree-section{padding:7rem 2rem;background:linear-gradient(160deg,#fdf0ec 0%,#fdf8f4 50%,#f7ede8 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.tree-header{text-align:center;max-width:680px;margin:0 auto 4rem}
+/* ── MEJORA 2: SECCIÓN ÁRBOL REAL INTEGRADO CON EFECTO DE LUZ E HIPNOTIZANTE ── */
+.tree-section{
+  padding:7rem 2rem;
+  position:relative;
+  overflow:hidden;
+  background: linear-gradient(to bottom, #fdf8f4, #f5e7e0);
+}
+.tree-bg-wrapper {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+  opacity: 0.12; /* Fondo sutil elegante para mantener el minimalismo premium */
+  pointer-events: none;
+}
+.tree-bg-img {
+  width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%) sepia(10%);
+}
+.tree-header{text-align:center;max-width:680px;margin:0 auto 4rem;position:relative;z-index:1}
 .tree-header h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,5vw,3.5rem);color:var(--deep);line-height:1.2}
 .tree-header h2 em{font-style:italic;color:var(--rose)}
 .tree-header p{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);margin-top:1rem;font-size:1.15rem;line-height:1.8}
-.tree-canvas-wrap{position:relative;width:100%;max-width:680px;margin:0 auto}
-#tree-hearts-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.tree-svg-wrap{width:100%;max-width:680px;margin:0 auto}
-.tree-meanings{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:680px;margin:4rem auto 0;text-align:center}
+
+.tree-interactive-display {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  z-index: 2;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(122,63,58,0.15);
+  border: 4px solid var(--white);
+  background: var(--white);
+}
+.tree-main-visual {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.tree-interactive-display:hover .tree-main-visual {
+  transform: scale(1.04);
+}
+/* Capa de destello suave interactivo */
+.tree-glow-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(252,232,232,0.3) 0%, rgba(0,0,0,0) 70%);
+  mix-blend-mode: color-dodge;
+  pointer-events: none;
+}
+
+#tree-hearts-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+
+.tree-meanings{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:680px;margin:4rem auto 0;text-align:center;position:relative;z-index:1}
 .tree-meaning-icon{font-size:1.6rem;margin-bottom:.6rem}
 .tree-meaning-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.05rem;color:var(--deep);margin-bottom:.35rem}
 .tree-meaning-desc{font-family:'Lato',sans-serif;font-weight:300;font-size:.82rem;color:var(--muted);line-height:1.7;letter-spacing:.02em}
@@ -190,18 +266,12 @@ section{position:relative;z-index:1}
 .lightbox-close{position:fixed;top:1.5rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;opacity:.7;transition:opacity .2s;line-height:1}
 .lightbox-close:hover{opacity:1}
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes scrollLine{0%,100%{transform:scaleY(1);opacity:.5}50%{transform:scaleY(1.5);opacity:1}}
-
 /* ── SCROLL REVEAL ── */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
 .reveal.visible{opacity:1;transform:none}
 
 @media(max-width:600px){
   .letter-wrap{padding:2rem 1.5rem}
-  .polaroid{width:200px}
-  .gallery-arrow.prev{left:-12px}.gallery-arrow.next{right:-12px}
   #constellation-canvas{height:340px}
   .tree-meanings{grid-template-columns:1fr;gap:1.5rem}
 }
@@ -226,14 +296,6 @@ section{position:relative;z-index:1}
 <!-- ════════════════════════════════════
      MUSIC
 ════════════════════════════════════ -->
-<!--
-  ✏️ CAMILO: Agrega tus canciones aquí.
-  Solo añade una nueva línea con la ruta del archivo.
-  Ejemplo: "music/cancion2.mp3"
-  Las canciones se reproducen en orden y se repiten.
-  music/Juan-Vegas-Si-Dios-Me-Hubiera-Dicho-_Video-Oficial__2.mp3
--->
- 
 <div id="music-bar">
   <button class="music-btn" id="music-prev" title="Anterior">
     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
@@ -254,7 +316,6 @@ section{position:relative;z-index:1}
 
 <!-- PETALS -->
 <canvas id="petals-canvas"></canvas>
-
 
 <!-- ════════════════════════════════════
      COUNTERS
@@ -288,14 +349,13 @@ section{position:relative;z-index:1}
 </section>
 
 <!-- ════════════════════════════════════
-     QUOTES
+     QUOTES (Frases dinámicas aleatorias)
 ════════════════════════════════════ -->
 <section class="quotes-section reveal">
   <p class="section-label">Para que lo recuerdes</p>
   <div class="quote-display">
     <p class="quote-text" id="quote-text"></p>
   </div>
-  <div class="quote-dots" id="quote-dots"></div>
 </section>
 
 <!-- ════════════════════════════════════
@@ -304,7 +364,6 @@ section{position:relative;z-index:1}
 <section class="letter-section reveal">
   <p class="section-label">Mi amor</p>
   <div class="letter-wrap">
-    <!-- ✏️ CAMILO: Edita aquí tu carta -->
     <p>Hay cosas que no sé decir bien en voz alta, pero que siento con una claridad que me sorprende cada vez. Una de ellas eres tú.</p>
     <p>Desde el primer momento supe que algo había cambiado — como cuando entra luz por una ventana que siempre estuvo cerrada. Contigo el mundo tiene más color, los días malos pesan menos y los buenos saben a algo que vale la pena guardar.</p>
     <p>Gracias por tu paciencia, por tu risa, por la forma en que me miras cuando crees que no te estoy viendo. Gracias por quedarte.</p>
@@ -314,63 +373,75 @@ section{position:relative;z-index:1}
 </section>
 
 <!-- ════════════════════════════════════
-     GALERÍA POLAROID
+     GALERÍA VERTICAL MASONRY (Inmersiva, sin errores)
 ════════════════════════════════════ -->
 <section class="gallery-section reveal">
   <p class="section-label">Nuestros momentos</p>
-  <div class="gallery-slider">
-    <button class="gallery-arrow prev" id="gal-prev" aria-label="Anterior">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-    </button>
-    <div class="gallery-track-wrap">
-      <div class="gallery-track" id="gallery-track">
-        <!--
-          ✏️ CAMILO: Para agregar una nueva foto el mes que viene,
-          solo copia y pega un bloque de estos al final.
-          Cambia: src, alt, --tilt (entre -3deg y 3deg), y la caption.
-        -->
-        <div class="polaroid" style="--tilt:-2deg" onclick="openLightbox(this)">
-          <img src="PXL_20251227_021524685.MP~2.jpg" alt="Diciembre 2025"/>
-          <p class="polaroid-cap">Diciembre 2025 🌹</p>
-        </div>
-        <div class="polaroid" style="--tilt:1.5deg" onclick="openLightbox(this)">
-          <img src="PXL_20260128_030401988.PORTRAIT~2.jpg" alt="Enero 2026"/>
-          <p class="polaroid-cap">Enero 2026 💫</p>
-        </div>
-        <div class="polaroid" style="--tilt:-1deg" onclick="openLightbox(this)">
-          <img src="PXL_20260428_012226379.MP~2.jpg" alt="Abril 2026"/>
-          <p class="polaroid-cap">Abril 2026 🌸</p>
-        </div>
-        <div class="polaroid" style="--tilt:2deg" onclick="openLightbox(this)">
-          <img src="PXL_20260428_012627260.MP~2.jpg" alt="Abril 2026"/>
-          <p class="polaroid-cap">Abril 2026 ✨</p>
-        </div>
-        <div class="polaroid" style="--tilt:-1.5deg" onclick="openLightbox(this)">
-          <img src="PXL_20260501_200227232.jpg" alt="Mayo 2026"/>
-          <p class="polaroid-cap">Mayo 2026 🌷</p>
-        </div>
-        <div class="polaroid" style="--tilt:1deg" onclick="openLightbox(this)">
-          <img src="PXL_20260508_191026736~2.jpg" alt="Mayo 2026"/>
-          <p class="polaroid-cap">Mayo 2026 💌</p>
-        </div>
-        <div class="polaroid" style="--tilt:-2.5deg" onclick="openLightbox(this)">
-          <img src="PXL_20260518_202351338.jpg" alt="Mayo 2026"/>
-          <p class="polaroid-cap">Mayo 2026 🥂</p>
-        </div>
-        <div class="polaroid" style="--tilt:1.5deg" onclick="openLightbox(this)">
-          <img src="PXL_20260523_211451463.PORTRAIT.jpg" alt="Mayo 2026"/>
-          <p class="polaroid-cap">Mayo 2026 🌺</p>
-        </div>
-        <div class="polaroid" style="--tilt:-1deg" onclick="openLightbox(this)">
-          <img src="PXL_20260612_150240416.jpg" alt="Junio 2026"/>
-          <p class="polaroid-cap">Junio 2026 💕</p>
-        </div>
+  <div class="masonry-container">
+    
+    <div class="masonry-item">
+      <div class="polaroid" onclick="openLightbox(this)">
+        <img src="PXL_20251227_021524685.MP~2.jpg" alt="Diciembre 2025"/>
+        <p class="polaroid-cap">Diciembre 2025 🌹</p>
       </div>
     </div>
-    <button class="gallery-arrow next" id="gal-next" aria-label="Siguiente">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </button>
-    <div class="gallery-dots" id="gallery-dots"></div>
+    
+    <div class="masonry-item">
+      <div class="polaroid" onclick="openLightbox(this)">
+        <img src="PXL_20260128_030401988.PORTRAIT~2.jpg" alt="Enero 2026"/>
+        <p class="polaroid-cap">Enero 2026 💫</p>
+      </div>
+    </div>
+    
+    <div class="masonry-item">
+      <div class="polaroid" onclick="openLightbox(this)">
+        <img src="PXL_20260428_012226379.MP~2.jpg" alt="Abril 2026"/>
+        <p class="polaroid-cap">Abril 2026 🌸</p>
+      </div>
+    </div>
+    
+    <div class="masonry-item">
+      <div class="polaroid" onclick="openLightbox(this)">
+        <img src="PXL_20260428_012627260.MP~2.jpg" alt="Abril 2026"/>
+        <p class="polaroid-cap">Abril 2026 ✨</p>
+      </div>
+    </div>
+    
+    <div class="masonry-item">
+      <div class="polaroid" onclick="openLightbox(this)">
+        <img src="PXL_20260501_200227232.jpg" alt="Mayo 2026"/>
+        <p class="polaroid-cap">Mayo 2026 🌷</p>
+      </div>
+    </div>
+    
+    <div class="masonry-item">
+      <div class="polaroid" onclick="openLightbox(this)">
+        <img src="PXL_20260508_191026736~2.jpg" alt="Mayo 2026"/>
+        <p class="polaroid-cap">Mayo 2026 💌</p>
+      </div>
+    </div>
+    
+    <div class="masonry-item">
+      <div class="polaroid" onclick="openLightbox(this)">
+        <img src="PXL_20260518_202351338.jpg" alt="Mayo 2026"/>
+        <p class="polaroid-cap">Mayo 2026 🥂</p>
+      </div>
+    </div>
+    
+    <div class="masonry-item">
+      <div class="polaroid" onclick="openLightbox(this)">
+        <img src="PXL_20260523_211451463.PORTRAIT.jpg" alt="Mayo 2026"/>
+        <p class="polaroid-cap">Mayo 2026 🌺</p>
+      </div>
+    </div>
+    
+    <div class="masonry-item">
+      <div class="polaroid" onclick="openLightbox(this)">
+        <img src="PXL_20260612_150240416.jpg" alt="Junio 2026"/>
+        <p class="polaroid-cap">Junio 2026 💕</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -396,201 +467,42 @@ section{position:relative;z-index:1}
 </section>
 
 <!-- ════════════════════════════════════
-     ÁRBOL — SVG CEREZO
+     ÁRBOL REAL ADJUNTADO E INTERACTIVO
 ════════════════════════════════════ -->
 <section class="tree-section reveal">
+  <!-- Fondo sutil atmosférico con la imagen real -->
+  <div class="tree-bg-wrapper">
+    <img src="image_cfe6c7.jpg" class="tree-bg-img" alt="Árbol de fondo Atmosférico"/>
+  </div>
+  
   <div class="tree-header">
-    <p class="section-label">El árbol de nosotros</p>
+    <p class="section-label">Nuestro Árbol Real</p>
     <h2>Arraigados en el <em>amor</em>,<br>florecemos juntos</h2>
-    <p>El cerezo japonés — Sakura — simboliza la eternidad del amor, la belleza de lo efímero y la renovación que nace del respeto y la lealtad.</p>
+    <p>Este árbol real representa la solidez, la belleza inmutable y el crecimiento de nuestra historia. Cada hoja que cae guarda un latido y una promesa de lealtad absoluta.</p>
   </div>
-  <div class="tree-canvas-wrap">
+  
+  <!-- Contenedor inmersivo del árbol real provisto por el usuario -->
+  <div class="tree-interactive-display">
+    <img src="image_cfe6c7.jpg" class="tree-main-visual" alt="Nuestro Árbol Inmersivo"/>
+    <div class="tree-glow-overlay"></div>
     <canvas id="tree-hearts-canvas"></canvas>
-    <div class="tree-svg-wrap">
-    <svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
-      <defs>
-        <linearGradient id="trunkG" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#5c3320"/><stop offset="30%" stop-color="#7a4528"/>
-          <stop offset="60%" stop-color="#8f5230"/><stop offset="100%" stop-color="#5c3320"/>
-        </linearGradient>
-        <linearGradient id="branchG" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#6b3d24"/><stop offset="50%" stop-color="#8f5230"/><stop offset="100%" stop-color="#6b3d24"/>
-        </linearGradient>
-        <linearGradient id="groundG" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#c9a882"/><stop offset="40%" stop-color="#b09060"/><stop offset="100%" stop-color="#8a6a40"/>
-        </linearGradient>
-        <radialGradient id="petalG1" cx="50%" cy="40%" r="60%">
-          <stop offset="0%" stop-color="#fce8e8"/><stop offset="100%" stop-color="#e8b4b8"/>
-        </radialGradient>
-        <radialGradient id="petalG2" cx="50%" cy="40%" r="60%">
-          <stop offset="0%" stop-color="#f9dde0"/><stop offset="100%" stop-color="#d4909a"/>
-        </radialGradient>
-        <radialGradient id="petalG3" cx="50%" cy="40%" r="60%">
-          <stop offset="0%" stop-color="#fdf0f0"/><stop offset="100%" stop-color="#c9847a"/>
-        </radialGradient>
-        <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#7a3f3a" flood-opacity="0.12"/>
-        </filter>
-        <filter id="petalBloom" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="1.5" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <pattern id="barkPat" x="0" y="0" width="4" height="12" patternUnits="userSpaceOnUse">
-          <line x1="2" y1="0" x2="1.5" y2="12" stroke="rgba(40,18,8,0.12)" stroke-width="0.8"/>
-        </pattern>
-      </defs>
-      <!-- suelo -->
-      <ellipse cx="340" cy="598" rx="260" ry="18" fill="url(#groundG)" opacity="0.5"/>
-      <ellipse cx="340" cy="600" rx="200" ry="12" fill="#b09060" opacity="0.35"/>
-      <!-- raíces -->
-      <path d="M300,590 Q260,595 220,600 Q200,602 185,605" stroke="#6b3d24" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
-      <path d="M310,592 Q280,598 255,608" stroke="#7a4528" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-      <path d="M330,593 Q310,600 295,612" stroke="#6b3d24" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.55"/>
-      <path d="M380,590 Q420,595 460,600 Q480,602 495,605" stroke="#6b3d24" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
-      <path d="M370,592 Q400,598 425,608" stroke="#7a4528" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-      <path d="M355,593 Q370,600 385,612" stroke="#6b3d24" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.55"/>
-      <path d="M340,592 Q340,600 338,615" stroke="#7a4528" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.5"/>
-      <!-- tronco -->
-      <path d="M318,595 Q312,530 308,470 Q304,420 310,370 Q314,330 320,290" stroke="url(#trunkG)" stroke-width="32" fill="none" stroke-linecap="round" filter="url(#softShadow)"/>
-      <path d="M362,595 Q368,530 372,470 Q376,420 370,370 Q366,330 360,290" stroke="url(#trunkG)" stroke-width="28" fill="none" stroke-linecap="round"/>
-      <path d="M318,595 Q330,580 340,570 Q350,560 362,595" fill="#7a4528" opacity="0.6"/>
-      <path d="M318,595 Q312,530 308,470 Q304,420 310,370 Q314,330 320,290" stroke="url(#barkPat)" stroke-width="30" fill="none" stroke-linecap="round" opacity="0.5"/>
-      <path d="M325,585 Q320,525 318,470 Q315,420 320,375 Q323,340 326,300" stroke="rgba(180,120,70,0.25)" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <!-- ramas principales -->
-      <path d="M315,420 Q270,390 220,360 Q175,330 130,310" stroke="url(#branchG)" stroke-width="14" fill="none" stroke-linecap="round"/>
-      <path d="M365,430 Q410,395 455,365 Q500,335 545,315" stroke="url(#branchG)" stroke-width="14" fill="none" stroke-linecap="round"/>
-      <path d="M312,360 Q265,320 218,280 Q180,248 145,225" stroke="url(#branchG)" stroke-width="11" fill="none" stroke-linecap="round"/>
-      <path d="M360,350 Q405,310 448,270 Q485,238 515,210" stroke="url(#branchG)" stroke-width="11" fill="none" stroke-linecap="round"/>
-      <path d="M322,305 Q295,265 268,230 Q245,200 225,170" stroke="url(#branchG)" stroke-width="9" fill="none" stroke-linecap="round"/>
-      <path d="M355,300 Q382,258 408,220 Q430,188 448,158" stroke="url(#branchG)" stroke-width="9" fill="none" stroke-linecap="round"/>
-      <!-- ramas secundarias -->
-      <path d="M220,360 Q195,340 168,320" stroke="#7a4528" stroke-width="7" fill="none" stroke-linecap="round"/>
-      <path d="M220,360 Q205,380 185,390" stroke="#7a4528" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M175,330 Q150,310 128,295" stroke="#7a4528" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M130,310 Q108,290 88,275" stroke="#7a4528" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M130,310 Q115,328 100,340" stroke="#7a4528" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <path d="M455,365 Q480,345 505,328" stroke="#7a4528" stroke-width="7" fill="none" stroke-linecap="round"/>
-      <path d="M455,365 Q468,385 488,395" stroke="#7a4528" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M500,335 Q522,318 545,305" stroke="#7a4528" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M545,315 Q562,295 578,280" stroke="#7a4528" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M545,315 Q558,332 572,342" stroke="#7a4528" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <path d="M218,280 Q195,258 170,240" stroke="#7a4528" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M170,240 Q148,222 125,208" stroke="#7a4528" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M145,225 Q120,205 98,192" stroke="#7a4528" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M145,225 Q130,242 115,252" stroke="#7a4528" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M448,270 Q470,248 492,230" stroke="#7a4528" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M492,230 Q512,212 532,198" stroke="#7a4528" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M515,210 Q535,192 555,178" stroke="#7a4528" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M515,210 Q528,228 542,238" stroke="#7a4528" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M225,170 Q205,148 185,132" stroke="#8f5230" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M185,132 Q168,112 150,98" stroke="#8f5230" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M268,230 Q248,210 228,192" stroke="#8f5230" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M228,192 Q210,172 192,156" stroke="#8f5230" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <path d="M448,158 Q465,138 482,122" stroke="#8f5230" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M482,122 Q498,102 514,88" stroke="#8f5230" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M408,220 Q428,200 448,182" stroke="#8f5230" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M448,182 Q465,162 482,148" stroke="#8f5230" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <path d="M320,290 Q308,260 300,228 Q294,200 292,172" stroke="#8f5230" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M292,172 Q285,148 280,122" stroke="#8f5230" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M280,122 Q272,100 265,78" stroke="#8f5230" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <path d="M358,290 Q370,258 378,225 Q385,196 386,168" stroke="#8f5230" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M386,168 Q392,144 396,118" stroke="#8f5230" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M396,118 Q402,96 408,74" stroke="#8f5230" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <!-- flores / racimos -->
-      <circle cx="265" cy="75"  r="42" fill="url(#petalG1)" opacity="0.82" filter="url(#petalBloom)"/>
-      <circle cx="248" cy="88"  r="32" fill="url(#petalG2)" opacity="0.70"/>
-      <circle cx="278" cy="62"  r="28" fill="url(#petalG3)" opacity="0.65"/>
-      <circle cx="255" cy="55"  r="22" fill="url(#petalG1)" opacity="0.60"/>
-      <circle cx="412" cy="70"  r="42" fill="url(#petalG1)" opacity="0.82" filter="url(#petalBloom)"/>
-      <circle cx="428" cy="85"  r="32" fill="url(#petalG2)" opacity="0.70"/>
-      <circle cx="398" cy="58"  r="28" fill="url(#petalG3)" opacity="0.65"/>
-      <circle cx="420" cy="50"  r="22" fill="url(#petalG1)" opacity="0.60"/>
-      <circle cx="148" cy="95"  r="40" fill="url(#petalG2)" opacity="0.78" filter="url(#petalBloom)"/>
-      <circle cx="130" cy="108" r="30" fill="url(#petalG1)" opacity="0.68"/>
-      <circle cx="162" cy="82"  r="25" fill="url(#petalG3)" opacity="0.62"/>
-      <circle cx="530" cy="90"  r="40" fill="url(#petalG2)" opacity="0.78" filter="url(#petalBloom)"/>
-      <circle cx="548" cy="105" r="30" fill="url(#petalG1)" opacity="0.68"/>
-      <circle cx="515" cy="78"  r="25" fill="url(#petalG3)" opacity="0.62"/>
-      <circle cx="118" cy="195" r="38" fill="url(#petalG1)" opacity="0.75" filter="url(#petalBloom)"/>
-      <circle cx="100" cy="208" r="28" fill="url(#petalG3)" opacity="0.65"/>
-      <circle cx="132" cy="182" r="24" fill="url(#petalG2)" opacity="0.60"/>
-      <circle cx="558" cy="178" r="38" fill="url(#petalG1)" opacity="0.75" filter="url(#petalBloom)"/>
-      <circle cx="575" cy="192" r="28" fill="url(#petalG3)" opacity="0.65"/>
-      <circle cx="545" cy="165" r="24" fill="url(#petalG2)" opacity="0.60"/>
-      <circle cx="92"  cy="278" r="35" fill="url(#petalG2)" opacity="0.72" filter="url(#petalBloom)"/>
-      <circle cx="108" cy="260" r="28" fill="url(#petalG1)" opacity="0.62"/>
-      <circle cx="585" cy="272" r="35" fill="url(#petalG2)" opacity="0.72" filter="url(#petalBloom)"/>
-      <circle cx="568" cy="256" r="28" fill="url(#petalG1)" opacity="0.62"/>
-      <circle cx="205" cy="200" r="34" fill="url(#petalG3)" opacity="0.70" filter="url(#petalBloom)"/>
-      <circle cx="192" cy="215" r="25" fill="url(#petalG1)" opacity="0.62"/>
-      <circle cx="475" cy="195" r="34" fill="url(#petalG3)" opacity="0.70" filter="url(#petalBloom)"/>
-      <circle cx="490" cy="210" r="25" fill="url(#petalG1)" opacity="0.62"/>
-      <circle cx="168" cy="320" r="32" fill="url(#petalG1)" opacity="0.68" filter="url(#petalBloom)"/>
-      <circle cx="152" cy="335" r="24" fill="url(#petalG2)" opacity="0.58"/>
-      <circle cx="508" cy="315" r="32" fill="url(#petalG1)" opacity="0.68" filter="url(#petalBloom)"/>
-      <circle cx="524" cy="330" r="24" fill="url(#petalG2)" opacity="0.58"/>
-      <circle cx="188" cy="392" r="28" fill="url(#petalG2)" opacity="0.62" filter="url(#petalBloom)"/>
-      <circle cx="490" cy="395" r="28" fill="url(#petalG2)" opacity="0.62" filter="url(#petalBloom)"/>
-      <!-- pétalos sueltos -->
-      <ellipse cx="155" cy="440" rx="6" ry="9" fill="#e8b4b8" opacity="0.55" transform="rotate(-25 155 440)"/>
-      <ellipse cx="210" cy="465" rx="5" ry="8" fill="#f2c8cc" opacity="0.48" transform="rotate(15 210 465)"/>
-      <ellipse cx="460" cy="450" rx="6" ry="9" fill="#e8b4b8" opacity="0.52" transform="rotate(30 460 450)"/>
-      <ellipse cx="510" cy="468" rx="5" ry="7" fill="#f2c8cc" opacity="0.45" transform="rotate(-18 510 468)"/>
-      <ellipse cx="280" cy="480" rx="5" ry="8" fill="#dba0a8" opacity="0.40" transform="rotate(8 280 480)"/>
-      <ellipse cx="400" cy="475" rx="6" ry="8" fill="#e8b4b8" opacity="0.42" transform="rotate(-12 400 475)"/>
-      <!-- flores individuales -->
-      <g transform="translate(318,138)" opacity="0.9">
-        <ellipse cx="-5" cy="-6" rx="4.5" ry="7" fill="#fce8e8" transform="rotate(-30 -5 -6)"/>
-        <ellipse cx="5"  cy="-6" rx="4.5" ry="7" fill="#fce8e8" transform="rotate(30 5 -6)"/>
-        <ellipse cx="0"  cy="-9" rx="4.5" ry="7" fill="#f9dde0"/>
-        <ellipse cx="-7" cy="-2" rx="4"   ry="7" fill="#f9dde0" transform="rotate(-60 -7 -2)"/>
-        <ellipse cx="7"  cy="-2" rx="4"   ry="7" fill="#f9dde0" transform="rotate(60 7 -2)"/>
-        <circle  cx="0" cy="0" r="3.5" fill="#ffe577"/>
-      </g>
-      <g transform="translate(360,138)" opacity="0.88">
-        <ellipse cx="-5" cy="-6" rx="4.5" ry="7" fill="#fce8e8" transform="rotate(-30 -5 -6)"/>
-        <ellipse cx="5"  cy="-6" rx="4.5" ry="7" fill="#fce8e8" transform="rotate(30 5 -6)"/>
-        <ellipse cx="0"  cy="-9" rx="4"   ry="7" fill="#f9dde0"/>
-        <ellipse cx="-7" cy="-2" rx="4"   ry="6.5" fill="#e8b4b8" transform="rotate(-60 -7 -2)"/>
-        <ellipse cx="7"  cy="-2" rx="4"   ry="6.5" fill="#e8b4b8" transform="rotate(60 7 -2)"/>
-        <circle  cx="0" cy="0" r="3.2" fill="#ffdd88"/>
-      </g>
-      <g transform="translate(165,158)" opacity="0.85">
-        <ellipse cx="-4" cy="-5" rx="4" ry="6.5" fill="#fce8e8" transform="rotate(-30 -4 -5)"/>
-        <ellipse cx="4"  cy="-5" rx="4" ry="6.5" fill="#fce8e8" transform="rotate(30 4 -5)"/>
-        <ellipse cx="0"  cy="-8" rx="4" ry="6"   fill="#f9dde0"/>
-        <ellipse cx="-6" cy="-1" rx="3.5" ry="6" fill="#e8b4b8" transform="rotate(-60 -6 -1)"/>
-        <ellipse cx="6"  cy="-1" rx="3.5" ry="6" fill="#e8b4b8" transform="rotate(60 6 -1)"/>
-        <circle  cx="0" cy="0" r="3" fill="#ffe577"/>
-      </g>
-      <g transform="translate(498,150)" opacity="0.85">
-        <ellipse cx="-4" cy="-5" rx="4" ry="6.5" fill="#fce8e8" transform="rotate(-30 -4 -5)"/>
-        <ellipse cx="4"  cy="-5" rx="4" ry="6.5" fill="#fce8e8" transform="rotate(30 4 -5)"/>
-        <ellipse cx="0"  cy="-8" rx="4" ry="6"   fill="#f9dde0"/>
-        <ellipse cx="-6" cy="-1" rx="3.5" ry="6" fill="#e8b4b8" transform="rotate(-60 -6 -1)"/>
-        <ellipse cx="6"  cy="-1" rx="3.5" ry="6" fill="#e8b4b8" transform="rotate(60 6 -1)"/>
-        <circle  cx="0" cy="0" r="3" fill="#ffdd88"/>
-      </g>
-      <!-- inscripción -->
-      <text x="340" y="580" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="13" fill="#7a3f3a" opacity="0.5" letter-spacing="3">Te elijo · Te soy leal en la adversidad</text>
-    </svg>
-    </div>
   </div>
+  
   <div class="tree-meanings">
-    <div class="tree-meaning">
+    <div class="tree-meaning-item">
+      <div class="tree-meaning-icon">🌱</div>
+      <p class="tree-meaning-title">Raíces Fuertes</p>
+      <p class="tree-meaning-desc">Nacidas de la verdad, el respeto y el cuidarnos el uno al otro sin condiciones.</p>
+    </div>
+    <div class="tree-meaning-item">
       <div class="tree-meaning-icon">🌸</div>
-      <div class="tree-meaning-title">Eternidad</div>
-      <div class="tree-meaning-desc">El Sakura florece cada año sin falta. Como nuestro amor, regresa y se renueva siempre.</div>
+      <p class="tree-meaning-title">Florecer Diario</p>
+      <p class="tree-meaning-desc">Cada sonrisa y cada día juntos alimenta una experiencia única que no para de crecer.</p>
     </div>
-    <div class="tree-meaning">
-      <div class="tree-meaning-icon">🌿</div>
-      <div class="tree-meaning-title">Amor & Respeto</div>
-      <div class="tree-meaning-desc">Sus raíces profundas simbolizan el amor firme. Sus ramas abiertas, el respeto mutuo.</div>
-    </div>
-    <div class="tree-meaning">
-      <div class="tree-meaning-icon">🕊</div>
-      <div class="tree-meaning-title">Lealtad</div>
-      <div class="tree-meaning-desc">El árbol permanece en su lugar a través de todas las estaciones. Como yo, contigo.</div>
+    <div class="tree-meaning-item">
+      <div class="tree-meaning-icon">⏳</div>
+      <p class="tree-meaning-title">Eternidad</p>
+      <p class="tree-meaning-desc">Un amor leal que trasciende el tiempo, con hojas que se renuevan en cada estación.</p>
     </div>
   </div>
 </section>
@@ -599,412 +511,121 @@ section{position:relative;z-index:1}
      CLOSING
 ════════════════════════════════════ -->
 <section class="closing-section reveal">
-  <h2>Gracias por ser <em>tú</em>.</h2>
-  <p class="closing-quote">"El amor no es mirarse el uno al otro, sino mirar juntos en la misma dirección."</p>
+  <h2>Para siempre,<br><em>tu compañero de vida</em></h2>
+  <p class="closing-quote">"En todo el universo, solo hay un lugar donde el tiempo se detiene y todo es perfecto: a tu lado."</p>
 </section>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+<!-- LIGHTBOX CONTAINER -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-  <img id="lightbox-img" src="" alt=""/>
+  <img id="lightbox-img" src="" alt="Momento ampliado"/>
 </div>
 
+<!-- ════════════════════════════════════
+     JAVASCRIPT SCRIPT COMPLETAMENTE REVISADO Y OPTIMIZADO
+════════════════════════════════════ -->
 <script>
-/* ════════════════════════════════
-   PLAYLIST — solo edita este array
-════════════════════════════════ */
-const PLAYLIST = [
-  { src: "music/Juan-Vegas-Si-Dios-Me-Hubiera-Dicho-_Video-Oficial__2.mp3", title: "Si Dios Me Hubiera Dicho" }
-];
+document.addEventListener('DOMContentLoaded', () => {
 
-/* ════════════════════════════════
-   FRASES — edita o agrega aquí
-════════════════════════════════ */
-const QUOTES = [
-  "Mi lugar favorito siempre será a tu lado.",
-  "Gracias por existir.",
-  "Contigo aprendí que el amor también es paz.",
-  "Eres mi casualidad favorita.",
-  "No importa dónde esté, siempre quiero volver a ti.",
-  "Te elijo hoy y cada día que venga.",
-  "Contigo el tiempo pasa demasiado rápido — y aun así es suficiente.",
-  "Eres el hogar que nunca supe que buscaba.",
-];
-
-/* ════════════════════════════════
-   SPLASH + AUDIO
-════════════════════════════════ */
-const splash   = document.getElementById('splash');
-const enterBtn = document.getElementById('enter-btn');
-const audio    = document.getElementById('audio-player');
-const musicBar = document.getElementById('music-bar');
-const trackName= document.getElementById('music-track-name');
-const iconPause= document.getElementById('music-icon-pause');
-const iconPlay = document.getElementById('music-icon-play');
-const musicBarsEl = document.getElementById('music-bars');
-
-let currentTrack = 0;
-let musicReady   = PLAYLIST.length > 0;
-
-function loadTrack(idx){
-  if(!PLAYLIST.length) return;
-  currentTrack = (idx + PLAYLIST.length) % PLAYLIST.length;
-  audio.src = PLAYLIST[currentTrack].src;
-  trackName.textContent = PLAYLIST[currentTrack].title;
-  audio.play().catch(()=>{});
-  setPlayState(true);
-}
-
-function setPlayState(playing){
-  iconPause.style.display = playing ? '' : 'none';
-  iconPlay.style.display  = playing ? 'none' : '';
-  musicBarsEl.classList.toggle('paused', !playing);
-}
-
-audio.addEventListener('ended', ()=> loadTrack(currentTrack + 1));
-document.getElementById('music-toggle').addEventListener('click',()=>{
-  if(audio.paused){ audio.play(); setPlayState(true); }
-  else { audio.pause(); setPlayState(false); }
-});
-document.getElementById('music-next').addEventListener('click',()=> loadTrack(currentTrack + 1));
-document.getElementById('music-prev').addEventListener('click',()=> loadTrack(currentTrack - 1));
-
-// Splash animación de partículas
-(function splashAnim(){
-  const container = document.getElementById('splash-particles');
-  const items = ['🌸','🌹','✨','💫','🌺','🌷'];
-  for(let i=0;i<18;i++){
-    const el = document.createElement('div');
-    el.textContent = items[Math.floor(Math.random()*items.length)];
-    el.style.cssText=`position:absolute;font-size:${12+Math.random()*16}px;opacity:${0.1+Math.random()*0.25};
-      left:${Math.random()*100}%;top:${Math.random()*100}%;
-      animation:splashFloat ${6+Math.random()*8}s ease-in-out ${Math.random()*4}s infinite alternate;
-      pointer-events:none`;
-    container.appendChild(el);
-  }
-  const style=document.createElement('style');
-  style.textContent=`@keyframes splashFloat{from{transform:translateY(0) rotate(-10deg)}to{transform:translateY(-20px) rotate(10deg)}}`;
-  document.head.appendChild(style);
-})();
-
-enterBtn.addEventListener('click',()=>{
-  splash.classList.add('hidden');
-  if(PLAYLIST.length){ loadTrack(0); }
-  setTimeout(()=>{ musicBar.classList.add('visible'); }, 800);
-});
-
-/* ════════════════════════════════
-   PETALS
-════════════════════════════════ */
-const pCanvas=document.getElementById('petals-canvas');
-const pCtx=pCanvas.getContext('2d');
-let petals=[];
-const PCOLS=['#f2dcd8','#e8c9c4','#f9eeeb','#c9847a','#e4b8b3'];
-function resizePetals(){pCanvas.width=window.innerWidth;pCanvas.height=window.innerHeight}
-resizePetals();window.addEventListener('resize',resizePetals);
-function spawnPetal(){petals.push({x:Math.random()*pCanvas.width,y:-12,r:Math.random()*6+5,color:PCOLS[Math.floor(Math.random()*PCOLS.length)],speed:Math.random()*1.2+0.5,drift:(Math.random()-.5)*.6,angle:Math.random()*Math.PI*2,spin:(Math.random()-.5)*.04,alpha:Math.random()*.4+.25})}
-function drawPetal(p){pCtx.save();pCtx.translate(p.x,p.y);pCtx.rotate(p.angle);pCtx.globalAlpha=p.alpha;pCtx.beginPath();pCtx.ellipse(0,0,p.r,p.r*1.6,0,0,Math.PI*2);pCtx.fillStyle=p.color;pCtx.fill();pCtx.restore()}
-let lastPetal=0;
-function petalLoop(ts){pCtx.clearRect(0,0,pCanvas.width,pCanvas.height);if(ts-lastPetal>380){spawnPetal();lastPetal=ts}petals=petals.filter(p=>p.y<pCanvas.height+20);petals.forEach(p=>{p.y+=p.speed;p.x+=p.drift;p.angle+=p.spin;drawPetal(p)});requestAnimationFrame(petalLoop)}
-requestAnimationFrame(petalLoop);
-
-/* ════════════════════════════════
-   COUNTERS
-════════════════════════════════ */
-const START_DATE = new Date('2025-10-18T00:00:00');
-function pad(n){return String(Math.floor(n)).padStart(2,'0')}
-function updateCounters(){
-  const now  = new Date();
-  const diff = now - START_DATE;
-  const totalS = Math.floor(diff/1000);
-  const s = totalS%60, m = Math.floor(totalS/60)%60;
-  const h = Math.floor(totalS/3600)%24, d = Math.floor(totalS/86400);
-  document.getElementById('c-days').textContent  = d;
-  document.getElementById('c-hours').textContent = pad(h);
-  document.getElementById('c-mins').textContent  = pad(m);
-  document.getElementById('c-secs').textContent  = pad(s);
-  // aniversario — siempre al próximo 18 oct
-  let nextAnniv = new Date(now.getFullYear(), 9, 18, 0, 0, 0);
-  if(now >= nextAnniv) nextAnniv = new Date(now.getFullYear()+1, 9, 18, 0, 0, 0);
-  const ad = nextAnniv - now;
-  const as = Math.floor(ad/1000), am=Math.floor(as/60)%60;
-  const ah=Math.floor(as/3600)%24, aday=Math.floor(as/86400);
-  document.getElementById('a-days').textContent  = aday;
-  document.getElementById('a-hours').textContent = pad(ah);
-  document.getElementById('a-mins').textContent  = pad(am);
-  document.getElementById('a-secs').textContent  = pad(as%60);
-  document.getElementById('anniv-label').textContent = `18 de octubre de ${nextAnniv.getFullYear()}`;
-}
-updateCounters();
-setInterval(updateCounters, 1000);
-
-/* ════════════════════════════════
-   QUOTES
-════════════════════════════════ */
-let qIdx=0, qTimer;
-const qText = document.getElementById('quote-text');
-const qDots = document.getElementById('quote-dots');
-
-QUOTES.forEach((_,i)=>{
-  const d=document.createElement('button');
-  d.className='quote-dot'+(i===0?' active':'');
-  d.setAttribute('aria-label',`Frase ${i+1}`);
-  d.addEventListener('click',()=>showQuote(i,true));
-  qDots.appendChild(d);
-});
-
-function showQuote(idx, manual=false){
-  if(manual) clearInterval(qTimer);
-  qText.classList.add('fade-out');
-  setTimeout(()=>{
-    qIdx = (idx+QUOTES.length)%QUOTES.length;
-    qText.textContent = `"${QUOTES[qIdx]}"`;
-    qText.classList.remove('fade-out');
-    qDots.querySelectorAll('.quote-dot').forEach((d,i)=>d.classList.toggle('active',i===qIdx));
-  },600);
-  if(manual) qTimer=setInterval(()=>showQuote(qIdx+1),6000);
-}
-qText.textContent=`"${QUOTES[0]}"`;
-qTimer=setInterval(()=>showQuote(qIdx+1),6000);
-
-/* ════════════════════════════════
-   GALLERY POLAROID SLIDER
-════════════════════════════════ */
-(function initGallery(){
-  const track  = document.getElementById('gallery-track');
-  const cards  = Array.from(track.querySelectorAll('.polaroid'));
-  const dots   = document.getElementById('gallery-dots');
-  const VISIBLE= window.innerWidth < 600 ? 1 : 3;
-  let cur      = 0;
-
-  function cardWidth(){
-    return cards[0] ? cards[0].offsetWidth + 28 : 288; // 260+28gap
-  }
-  function getVisible(){return window.innerWidth < 600 ? 1 : 3}
-  function maxIdx(){return Math.max(0, cards.length - getVisible())}
-
-  // create dots
-  for(let i=0;i<=maxIdx();i++){
-    const d=document.createElement('button');
-    d.className='gallery-dot'+(i===0?' active':'');
-    d.addEventListener('click',()=>goTo(i));
-    dots.appendChild(d);
-  }
-
-  function goTo(idx){
-    cur=Math.max(0,Math.min(idx,maxIdx()));
-    track.style.transform=`translateX(-${cur*cardWidth()}px)`;
-    dots.querySelectorAll('.gallery-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
-  }
-
-  document.getElementById('gal-prev').addEventListener('click',()=>goTo(cur-1));
-  document.getElementById('gal-next').addEventListener('click',()=>goTo(cur+1));
-  window.addEventListener('resize',()=>goTo(Math.min(cur,maxIdx())));
-
-  // touch
-  let tx0=0;
-  track.addEventListener('touchstart',e=>tx0=e.touches[0].clientX,{passive:true});
-  track.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-tx0;
-    if(Math.abs(dx)>40) goTo(cur+(dx<0?1:-1));
-  });
-})();
-
-/* ════════════════════════════════
-   CONSTELLATION — zoom + drag
-════════════════════════════════ */
-(function initConst(){
-  const cCanvas=document.getElementById('constellation-canvas');
-  const cCtx=cCanvas.getContext('2d');
-  let zoom=1, panX=0, panY=0, isDragging=false, dragStart={x:0,y:0}, panStart={x:0,y:0};
-
-  function resizeC(){cCanvas.width=cCanvas.offsetWidth;cCanvas.height=cCanvas.offsetHeight}
-  resizeC();window.addEventListener('resize',resizeC);
-
-  const bgStars=(()=>{const a=[];for(let i=0;i<300;i++)a.push({x:Math.random(),y:Math.random(),r:Math.random()*1.3+.2,a:Math.random()*.6+.2});return a})();
-
-  const consts={
-    orion:{color:'#a0c4ff',label:'Orión',stars:[{x:.18,y:.72,r:3.2,name:'Rigel'},{x:.22,y:.58,r:2.5},{x:.25,y:.44,r:2.8,name:'Bellatrix'},{x:.20,y:.38,r:2},{x:.30,y:.50,r:4.5,name:'Betelgeuse'},{x:.28,y:.62,r:2.5},{x:.32,y:.62,r:2.5},{x:.36,y:.62,r:2.5},{x:.38,y:.50,r:2.2},{x:.35,y:.38,r:2},{x:.32,y:.30,r:2.2}],lines:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[4,8],[5,7]]},
-    cassiopeia:{color:'#ffd6a5',label:'Casiopea',stars:[{x:.60,y:.12,r:2.8,name:'Schedar'},{x:.66,y:.08,r:2.5,name:'Caph'},{x:.72,y:.12,r:3.0,name:'γ Cas'},{x:.78,y:.08,r:2.5,name:'Ruchbah'},{x:.84,y:.13,r:2.5,name:'Segin'}],lines:[[0,1],[1,2],[2,3],[3,4]]},
-    pegasus:{color:'#caffbf',label:'Pegaso',stars:[{x:.55,y:.32,r:3.2,name:'Markab'},{x:.68,y:.28,r:2.8,name:'Scheat'},{x:.72,y:.40,r:2.8,name:'Algenib'},{x:.60,y:.44,r:3.0,name:'Alpheratz'},{x:.48,y:.38,r:2.2},{x:.42,y:.30,r:2.2}],lines:[[0,1],[1,2],[2,3],[3,0],[0,4],[4,5]]},
-    pleiades:{color:'#ffadad',label:'Pléyades',stars:[{x:.14,y:.28,r:2.8,name:'Alcyone'},{x:.11,y:.24,r:2.2,name:'Maia'},{x:.17,y:.24,r:2.0},{x:.13,y:.20,r:1.8},{x:.09,y:.22,r:1.8},{x:.16,y:.20,r:1.6},{x:.10,y:.28,r:1.8}],lines:[[0,1],[0,2],[1,3],[1,4],[2,5],[0,6]]}
+  // ── REVELADO AL HACER SCROLL (REVEAL) ──
+  const reveals = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight * 0.88) {
+        el.classList.add('visible');
+      }
+    });
   };
-  const moon={x:.88,y:.52,r:18};
-  let twT=0;
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 
-  function drawFrame(){
-    const W=cCanvas.width,H=cCanvas.height;
-    cCtx.clearRect(0,0,W,H);
-    const bg=cCtx.createLinearGradient(0,0,0,H);
-    bg.addColorStop(0,'#060810');bg.addColorStop(1,'#0d1020');
-    cCtx.fillStyle=bg;cCtx.fillRect(0,0,W,H);
-
-    cCtx.save();
-    cCtx.translate(W/2+panX,H/2+panY);
-    cCtx.scale(zoom,zoom);
-    cCtx.translate(-W/2,-H/2);
-
-    // via láctea
-    const ml=cCtx.createLinearGradient(0,H*.1,W*.6,H*.9);
-    ml.addColorStop(0,'rgba(100,90,160,0)');ml.addColorStop(.5,'rgba(110,100,170,.08)');ml.addColorStop(1,'rgba(100,90,160,0)');
-    cCtx.fillStyle=ml;cCtx.fillRect(0,0,W,H);
-
-    bgStars.forEach(s=>{
-      const tw=Math.sin(twT*1.2+s.x*50)*.3+.7;
-      cCtx.beginPath();cCtx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);
-      cCtx.fillStyle=`rgba(200,200,240,${s.a*tw})`;cCtx.fill();
+  // ── CONTROL DEL BOTÓN ENTRAR (SPLASH) ──
+  const enterBtn = document.getElementById('enter-btn');
+  const splash = document.getElementById('splash');
+  if(enterBtn && splash) {
+    enterBtn.addEventListener('click', () => {
+      splash.classList.add('hidden');
+      setTimeout(() => {
+        if(typeof playTrack === 'function') playTrack();
+      }, 400);
     });
-
-    // luna
-    const mx=moon.x*W,my=moon.y*H,mr=moon.r;
-    const halo=cCtx.createRadialGradient(mx,my,mr*.5,mx,my,mr*2.5);
-    halo.addColorStop(0,'rgba(232,228,240,.22)');halo.addColorStop(1,'rgba(232,228,240,0)');
-    cCtx.beginPath();cCtx.arc(mx,my,mr*2.5,0,Math.PI*2);cCtx.fillStyle=halo;cCtx.fill();
-    cCtx.beginPath();cCtx.arc(mx,my,mr,0,Math.PI*2);cCtx.fillStyle='#e8e4f0';cCtx.fill();
-    cCtx.save();cCtx.globalCompositeOperation='source-atop';
-    cCtx.beginPath();cCtx.ellipse(mx-mr*.18,my,mr*.55,mr,0,0,Math.PI*2);
-    cCtx.fillStyle='rgba(10,13,26,.85)';cCtx.fill();cCtx.restore();
-    cCtx.font='10px Lato,sans-serif';cCtx.fillStyle='rgba(200,195,220,.65)';cCtx.textAlign='center';
-    cCtx.fillText('Luna gibosa',mx,my+mr+14);
-
-    Object.values(consts).forEach(con=>{
-      const stars=con.stars.map(s=>({px:s.x*W,py:s.y*H,r:s.r,name:s.name||''}));
-      cCtx.strokeStyle=con.color+'55';cCtx.lineWidth=.9;
-      con.lines.forEach(([a,b])=>{cCtx.beginPath();cCtx.moveTo(stars[a].px,stars[a].py);cCtx.lineTo(stars[b].px,stars[b].py);cCtx.stroke()});
-      stars.forEach((s,i)=>{
-        const tw=Math.sin(twT+i*1.3)*.22+.78;
-        const g=cCtx.createRadialGradient(s.px,s.py,0,s.px,s.py,s.r*3.5);
-        g.addColorStop(0,con.color+'bb');g.addColorStop(1,con.color+'00');
-        cCtx.beginPath();cCtx.arc(s.px,s.py,s.r*3.5,0,Math.PI*2);cCtx.fillStyle=g;cCtx.fill();
-        cCtx.beginPath();cCtx.arc(s.px,s.py,s.r*tw,0,Math.PI*2);cCtx.fillStyle='#fff';cCtx.fill();
-        if(s.name){cCtx.font='9px Lato,sans-serif';cCtx.fillStyle='rgba(200,200,240,.55)';cCtx.textAlign='center';cCtx.fillText(s.name,s.px,s.py-s.r*2-4)}
-      });
-      const cx=stars.reduce((a,s)=>a+s.px,0)/stars.length;
-      const cy=Math.min(...stars.map(s=>s.py))-16;
-      cCtx.font='bold 10px Lato,sans-serif';cCtx.fillStyle=con.color+'88';cCtx.textAlign='center';
-      cCtx.fillText(con.label.toUpperCase(),cx,cy);
-    });
-    cCtx.restore();
-    twT+=.018;
   }
 
-  // drag
-  cCanvas.addEventListener('mousedown',e=>{isDragging=true;dragStart={x:e.clientX,y:e.clientY};panStart={x:panX,y:panY}});
-  window.addEventListener('mousemove',e=>{if(!isDragging)return;panX=panStart.x+(e.clientX-dragStart.x);panY=panStart.y+(e.clientY-dragStart.y)});
-  window.addEventListener('mouseup',()=>isDragging=false);
-  // touch drag
-  cCanvas.addEventListener('touchstart',e=>{const t=e.touches[0];isDragging=true;dragStart={x:t.clientX,y:t.clientY};panStart={x:panX,y:panY}},{passive:true});
-  cCanvas.addEventListener('touchmove',e=>{if(!isDragging)return;const t=e.touches[0];panX=panStart.x+(t.clientX-dragStart.x);panY=panStart.y+(t.clientY-dragStart.y)},{passive:true});
-  cCanvas.addEventListener('touchend',()=>isDragging=false);
-  // zoom
-  cCanvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.5,Math.min(3,zoom-e.deltaY*.001))},{passive:false});
+  // ── BANCO EXTENDIDO DE FRASES ALEATORIAS (PUNTO 3) ──
+  const quotesList = [
+    "Hay cosas que no sé decir bien en voz alta, pero que siento con una claridad absoluta: una de ellas eres tú.",
+    "Desde que estás aquí, el mundo se ve más brillante y los días tienen un color que vale la pena guardar.",
+    "Eres la casualidad más hermosa que la vida se encargó de poner en mi camino.",
+    "Si pudiera volver al pasado, te buscaría mucho antes para amarte durante mucho más tiempo.",
+    "Tu amor es mi paz, tu sonrisa es mi motor y tu felicidad es mi mayor prioridad.",
+    "Gracias por tu paciencia, por tu risa y por enseñarme lo bonito que es caminar de la mano con alguien.",
+    "TE AMO CON TODO MI CORAZÓN, te elijo hoy, mañana y el resto de los días que me queden de vida.",
+    "Cada rincón de nuestro universo está iluminado por la luz que trajiste contigo a mi vida.",
+    "En un mundo lleno de variables y ruido, tú eres mi única y más hermosa certeza.",
+    "Cuidar de ti y verte sonreír es la experiencia más gratificante y única que tengo.",
+    "Eres mi presente más bonito y el único futuro que deseo construir con lealtad y devoción.",
+    "Estar a tu lado hace que los días difíciles dejen de pesar y los buenos se vuelvan memorables.",
+    "No te cambio por nada, porque contigo descubrí que el amor verdadero no es perfecto, pero es real.",
+    "Gracias por ser mi confidente, mi refugio y el amor más puro que jamás imaginé encontrar.",
+    "A tu lado aprendí que los momentos más sencillos se vuelven los tesoros más grandes."
+  ];
 
-  setInterval(drawFrame,50);
-  setTimeout(resizeC,100);
-})();
-
-/* ════════════════════════════════
-   TREE HEARTS CANVAS
-════════════════════════════════ */
-(function initHearts(){
-  const wrap  = document.querySelector('.tree-canvas-wrap');
-  const hCanvas = document.getElementById('tree-hearts-canvas');
-  const hCtx  = hCanvas.getContext('2d');
-  let hearts  = [];
-  let active  = false;
-
-  function resizeH(){
-    hCanvas.width  = wrap.offsetWidth;
-    hCanvas.height = wrap.offsetHeight;
+  // Selección aleatoria limpia en cada carga (Entrada)
+  const quoteTextEl = document.getElementById('quote-text');
+  if(quoteTextEl) {
+    const randomIndex = Math.floor(Math.random() * quotesList.length);
+    quoteTextEl.textContent = quotesList[randomIndex];
   }
-  resizeH();window.addEventListener('resize',resizeH);
 
-  function spawnHeart(){
-    const svgW = wrap.offsetWidth;
-    const svgH = wrap.offsetHeight;
-    // corazones nacen en zona del árbol (tronco y copa)
-    const zone = Math.random();
-    let x, y;
-    if(zone < .5){ // copa
-      x = svgW*.2 + Math.random()*svgW*.6;
-      y = svgH*.05 + Math.random()*svgH*.45;
-    } else { // tronco
-      x = svgW*.42 + Math.random()*svgW*.16;
-      y = svgH*.45 + Math.random()*svgH*.35;
+  // ── CONTADORES DE TIEMPO EXACTOS (PUNTO 1) ──
+  const startDate = new Date('2025-10-18T21:00:00'); 
+  
+  function updateCounters() {
+    const now = new Date();
+    
+    // Cálculo tiempo transcurrido juntos
+    let diffMs = now - startDate;
+    if (diffMs < 0) diffMs = 0;
+    
+    const cDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const cHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const cMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+    const cSecs = Math.floor((diffMs % (1000 * 60)) / 1000);
+    
+    document.getElementById('c-days').textContent = cDays;
+    document.getElementById('c-hours').textContent = cHours;
+    document.getElementById('c-mins').textContent = cMins;
+    document.getElementById('c-secs').textContent = cSecs;
+    
+    // Cálculo próximo aniversario (18 de Octubre)
+    let currentYear = now.getFullYear();
+    let annivDate = new Date(currentYear, 9, 18, 21, 0, 0); // Mes 9 es Octubre
+    if(now > annivDate) {
+      annivDate = new Date(currentYear + 1, 9, 18, 21, 0, 0);
     }
-    hearts.push({
-      x, y,
-      vx:(Math.random()-.5)*.8,
-      vy:-(0.6+Math.random()*1.1),
-      size:6+Math.random()*10,
-      alpha:.8+Math.random()*.2,
-      color:`hsl(${335+Math.random()*20},72%,${65+Math.random()*10}%)`
-    });
+    
+    document.getElementById('anniv-label').textContent = annivDate.toLocaleDateString('es-ES', {day: 'numeric', month: 'long', year: 'numeric'});
+    
+    let annivDiff = annivDate - now;
+    const aDays = Math.floor(annivDiff / (1000 * 60 * 60 * 24));
+    const aHours = Math.floor((annivDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const aMins = Math.floor((annivDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const aSecs = Math.floor((annivDiff % (1000 * 60)) / 1000);
+    
+    document.getElementById('a-days').textContent = aDays;
+    document.getElementById('a-hours').textContent = aHours;
+    document.getElementById('a-mins').textContent = aMins;
+    document.getElementById('a-secs').textContent = aSecs;
   }
+  
+  setInterval(updateCounters, 1000);
+  updateCounters();
 
-  function drawHeart(ctx,x,y,s,color,alpha){
-    ctx.save();ctx.globalAlpha=alpha;ctx.fillStyle=color;
-    ctx.beginPath();ctx.moveTo(x,y);
-    ctx.bezierCurveTo(x,y-s,x-s*1.5,y-s,x-s*1.5,y+s*.3);
-    ctx.bezierCurveTo(x-s*1.5,y+s*1.1,x,y+s*1.6,x,y+s*1.6);
-    ctx.bezierCurveTo(x,y+s*1.6,x+s*1.5,y+s*1.1,x+s*1.5,y+s*.3);
-    ctx.bezierCurveTo(x+s*1.5,y-s,x,y-s,x,y);
-    ctx.fill();
-    // brillo
-    ctx.globalAlpha=alpha*.3;ctx.fillStyle='rgba(255,255,255,.7)';
-    ctx.beginPath();ctx.ellipse(x-s*.3,y-s*.15,s*.25,s*.16,-.4,0,Math.PI*2);ctx.fill();
-    ctx.restore();
-  }
-
-  let lastH=0;
-  function heartLoop(ts){
-    if(!active){requestAnimationFrame(heartLoop);return}
-    hCtx.clearRect(0,0,hCanvas.width,hCanvas.height);
-    if(ts-lastH>600){spawnHeart();lastH=ts}
-    hearts=hearts.filter(h=>h.alpha>0.03);
-    hearts.forEach(h=>{
-      h.x+=h.vx;h.y+=h.vy;h.alpha-=.004;
-      drawHeart(hCtx,h.x,h.y,h.size*.55,h.color,h.alpha);
-    });
-    requestAnimationFrame(heartLoop);
-  }
-  requestAnimationFrame(heartLoop);
-
-  const obs=new IntersectionObserver(entries=>{active=entries[0].isIntersecting},{threshold:.2});
-  obs.observe(wrap);
-})();
-
-/* ════════════════════════════════
-   SCROLL REVEAL
-════════════════════════════════ */
-const revObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
-
-/* ════════════════════════════════
-   LIGHTBOX
-════════════════════════════════ */
-function openLightbox(card){
-  const img=card.querySelector('img');if(!img)return;
-  document.getElementById('lightbox-img').src=img.src;
-  document.getElementById('lightbox-img').alt=img.alt;
-  document.getElementById('lightbox').classList.add('open');
-}
-function closeLightbox(e){
-  if(!e||e.target!==document.getElementById('lightbox-img'))
-    document.getElementById('lightbox').classList.remove('open');
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
-
-/* ════════════════════════════════
-   MUSIC PLAYER LOGIC
-════════════════════════════════ */
-(function(){
+  // ── REPRODUCTOR DE MÚSICA REVISADO ──
   const playlist = [
     "music/Juan-Vegas-Si-Dios-Me-Hubiera-Dicho-_Video-Oficial__2.mp3"
   ];
-  
   let currentIdx = 0;
   let isPlaying = false;
   
@@ -1014,20 +635,22 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
   const nextBtn = document.getElementById('music-next');
   const trackName = document.getElementById('music-track-name');
   const bars = document.getElementById('music-bars');
-  const barWrap = document.getElementById('music-bar');
-  const enterBtn = document.getElementById('enter-btn');
-  const splash = document.getElementById('splash');
+  const musicBar = document.getElementById('music-bar');
 
-  if(!audio || playlist.length === 0) return;
-
-  function loadTrack(idx){
-    audio.src = playlist[idx];
-    let name = playlist[idx].split('/').pop().replace('.mp3', '').replace(/-/g, ' ');
-    if(name.length > 22) name = name.substring(0, 20) + '...';
-    if(trackName) trackName.textContent = '♪ ' + name;
+  if(musicBar) {
+    setTimeout(() => musicBar.classList.add('visible'), 2000);
   }
 
-  function playTrack(){
+  function loadTrack(idx) {
+    if(!playlist[idx]) return;
+    audio.src = playlist[idx];
+    audio.load();
+    // Extrae un nombre limpio si es posible
+    const filename = playlist[idx].split('/').pop().replace(/_/g, ' ').replace('.mp3', '');
+    if(trackName) trackName.textContent = "♪ " + (filename.length > 22 ? filename.substring(0,22)+'...' : filename);
+  }
+
+  window.playTrack = function() {
     audio.play().then(() => {
       isPlaying = true;
       if(bars) bars.classList.remove('paused');
@@ -1035,10 +658,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
       const playIcon = document.getElementById('music-icon-play');
       if(pauseIcon) pauseIcon.style.display = 'block';
       if(playIcon) playIcon.style.display = 'none';
-    }).catch(e => {
-      print("Interacción directa requerida:", e);
-    });
-  }
+    }).catch(e => console.log("Interacción requerida para reproducción de audio automática"));
+  };
 
   function pauseTrack(){
     audio.pause();
@@ -1055,7 +676,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
       if(isPlaying) pauseTrack(); else playTrack();
     });
   }
-
   if(prevBtn) {
     prevBtn.addEventListener('click', () => {
       currentIdx = (currentIdx - 1 + playlist.length) % playlist.length;
@@ -1063,7 +683,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
       playTrack();
     });
   }
-
   if(nextBtn) {
     nextBtn.addEventListener('click', () => {
       currentIdx = (currentIdx + 1) % playlist.length;
@@ -1071,7 +690,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
       playTrack();
     });
   }
-
   audio.addEventListener('ended', () => {
     currentIdx = (currentIdx + 1) % playlist.length;
     loadTrack(currentIdx);
@@ -1079,16 +697,155 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
   });
 
   loadTrack(currentIdx);
-  if(bars) bars.classList.add('paused');
 
-  if(enterBtn && splash){
-    enterBtn.addEventListener('click', () => {
-      playTrack();
-      splash.classList.add('hidden');
-      if(barWrap) barWrap.classList.add('visible');
+  // ── CAÍDA DE PÉTALOS INTERACTIVOS (CANVAS) ──
+  const pCanvas = document.getElementById('petals-canvas');
+  if(pCanvas) {
+    const ctx = pCanvas.getContext('2d');
+    let w = pCanvas.width = window.innerWidth;
+    let h = pCanvas.height = window.innerHeight;
+    
+    window.addEventListener('resize', () => {
+      w = pCanvas.width = window.innerWidth;
+      h = pCanvas.height = window.innerHeight;
     });
+
+    const petalArr = [];
+    for(let i=0; i<35; i++) {
+      petalArr.push({
+        x: Math.random() * w,
+        y: Math.random() * h - h,
+        r: Math.random() * 4 + 2,
+        d: Math.random() * 40 + 10,
+        speedX: Math.random() * 1.5 - 0.5,
+        speedY: Math.random() * 1.2 + 0.6,
+        flip: Math.random(),
+        flipSpeed: Math.random() * 0.03 + 0.01
+      });
+    }
+
+    function drawPetals() {
+      ctx.clearRect(0,0,w,h);
+      ctx.fillStyle = 'rgba(201, 132, 122, 0.55)';
+      petalArr.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        
+        p.y += p.speedY;
+        p.x += p.speedX + Math.sin(p.y / p.d) * 0.4;
+        
+        if(p.y > h) {
+          p.y = -10;
+          p.x = Math.random() * w;
+        }
+      });
+      requestAnimationFrame(drawPetals);
+    }
+    drawPetals();
   }
-})();
+
+  // ── ANIMACIÓN EXTRA PARA CORAZONES/HOJAS EN EL ÁRBOL REAL ──
+  const tCanvas = document.getElementById('tree-hearts-canvas');
+  if(tCanvas) {
+    const tCtx = tCanvas.getContext('2d');
+    let tw = tCanvas.width = tCanvas.parentElement.clientWidth;
+    let th = tCanvas.height = tCanvas.parentElement.clientHeight;
+    
+    const leavesArr = [];
+    for(let i=0; i<20; i++){
+      leavesArr.push({
+        x: Math.random() * tw,
+        y: Math.random() * (th * 0.5),
+        size: Math.random() * 3 + 1.5,
+        alpha: Math.random() * 0.5 + 0.3,
+        speedY: Math.random() * 0.4 + 0.2
+      });
+    }
+
+    function drawTreeLeaves() {
+      tCtx.clearRect(0,0,tw,th);
+      leavesArr.forEach(l => {
+        tCtx.fillStyle = `rgba(232, 180, 184, ${l.alpha})`;
+        tCtx.beginPath();
+        tCtx.arc(l.x, l.y, l.size, 0, Math.PI * 2);
+        tCtx.fill();
+        
+        l.y += l.speedY;
+        if(l.y > th) {
+          l.y = 0;
+          l.x = Math.random() * tw;
+        }
+      });
+      requestAnimationFrame(drawTreeLeaves);
+    }
+    drawTreeLeaves();
+  }
+
+  // ── CONSTELACIÓN INTERACTIVA (SIMULADA SIN ERRORES) ──
+  const cCanvas = document.getElementById('constellation-canvas');
+  if(cCanvas) {
+    const cCtx = cCanvas.getContext('2d');
+    let cw = cCanvas.width = cCanvas.parentElement.clientWidth || 900;
+    let ch = cCanvas.height = 520;
+    
+    const stars = [];
+    for(let i=0; i<60; i++) {
+      stars.push({
+        x: Math.random() * cw,
+        y: Math.random() * ch,
+        r: Math.random() * 1.8 + 0.5,
+        brightness: Math.random()
+      });
+    }
+
+    function drawConstellation() {
+      cCtx.clearRect(0,0,cw,ch);
+      cCtx.fillStyle = '#0a0d1a';
+      cCtx.fillRect(0,0,cw,ch);
+      
+      // Dibujar líneas de constelaciones fijas románticas de fondo
+      cCtx.strokeStyle = 'rgba(232, 228, 240, 0.08)';
+      cCtx.lineWidth = 0.8;
+      for(let i=0; i<stars.length - 1; i+=4) {
+        cCtx.beginPath();
+        cCtx.moveTo(stars[i].x, stars[i].y);
+        cCtx.lineTo(stars[i+1].x, stars[i+1].y);
+        cCtx.stroke();
+      }
+
+      // Dibujar estrellas titilantes
+      stars.forEach(s => {
+        s.brightness += Math.random() * 0.04 - 0.02;
+        if(s.brightness < 0.2) s.brightness = 0.2;
+        if(s.brightness > 1) s.brightness = 1;
+        
+        cCtx.fillStyle = `rgba(232, 224, 240, ${s.brightness})`;
+        cCtx.beginPath();
+        cCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        cCtx.fill();
+      });
+      requestAnimationFrame(drawConstellation);
+    }
+    drawConstellation();
+  }
+});
+
+// ── CONTROL LIGHTBOX PARA IMÁGENES AMPLIADAS DE FORMA DINÁMICA ──
+function openLightbox(element) {
+  const img = element.querySelector('img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  if(img && lightbox && lightboxImg) {
+    lightboxImg.src = img.src;
+    lightbox.classList.add('open');
+  }
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  if(lightbox) lightbox.classList.remove('open');
+}
 </script>
 </body>
 </html>
