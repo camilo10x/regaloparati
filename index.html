@@ -210,6 +210,23 @@ section{position:relative;z-index:1}
 .password-modal.active{display:flex}.password-box{background:#fff;padding:32px;border-radius:20px;max-width:380px;width:90%;text-align:center}.password-box input{width:100%;padding:12px;margin:12px 0;border:1px solid #ccc;border-radius:10px}.password-box button{width:100%;padding:12px;border:none;background:#d07b86;color:#fff;border-radius:10px}
 
 </style>
+
+<!-- FUTURE TIMELINE PLACEHOLDER -->
+<style>
+.timeline{max-width:900px;margin:80px auto;padding:20px;position:relative}
+.timeline:before{content:'';position:absolute;left:30px;top:0;bottom:0;width:4px;background:#ff7aa2}
+.timeline-item{opacity:0;transform:translateY(40px);transition:.8s;margin:50px 0 50px 70px}
+.timeline-item.show{opacity:1;transform:none}
+.timeline-item img{width:100%;border-radius:18px;transition:transform .6s}
+.timeline-item:hover img{transform:scale(1.04)}
+.date{font-size:2rem;font-weight:bold;color:#ff4f81}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.2});
+ document.querySelectorAll('.timeline-item').forEach(x=>io.observe(x));
+});
+</script>
 </head>
 <body>
 
