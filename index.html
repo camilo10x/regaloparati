@@ -205,6 +205,10 @@ section{position:relative;z-index:1}
   #constellation-canvas{height:340px}
   .tree-meanings{grid-template-columns:1fr;gap:1.5rem}
 }
+
+.password-modal{position:fixed;inset:0;display:none;justify-content:center;align-items:center;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:99999}
+.password-modal.active{display:flex}.password-box{background:#fff;padding:32px;border-radius:20px;max-width:380px;width:90%;text-align:center}.password-box input{width:100%;padding:12px;margin:12px 0;border:1px solid #ccc;border-radius:10px}.password-box button{width:100%;padding:12px;border:none;background:#d07b86;color:#fff;border-radius:10px}
+
 </style>
 </head>
 <body>
@@ -212,6 +216,8 @@ section{position:relative;z-index:1}
 <!-- ════════════════════════════════════
      SPLASH
 ════════════════════════════════════ -->
+
+<div id="password-modal" class="password-modal"><div class="password-box"><h2>❤️ Antes de entrar…</h2><p>Solo quien conoce nuestra historia puede entrar.</p><input id="password-input" type="password" placeholder="Nuestra llave"><button id="password-btn">Entrar</button><p id="password-error" style="color:red"></p></div></div>
 <div id="splash">
   <div class="splash-particles" id="splash-particles"></div>
   <p class="splash-eyebrow">Un regalo para ti</p>
@@ -700,11 +706,14 @@ document.getElementById('music-prev').addEventListener('click',()=> loadTrack(cu
   document.head.appendChild(style);
 })();
 
-enterBtn.addEventListener('click',()=>{
-  splash.classList.add('hidden');
-  if(PLAYLIST.length){ loadTrack(0); }
-  setTimeout(()=>{ musicBar.classList.add('visible'); }, 800);
-});
+const PASSWORD='TEAMOMIAMOR';
+const modal=document.getElementById('password-modal');
+const passInput=document.getElementById('password-input');
+const passBtn=document.getElementById('password-btn');
+const passErr=document.getElementById('password-error');
+enterBtn.addEventListener('click',()=>{modal.classList.add('active');passInput.focus();});
+function unlock(){if(passInput.value===PASSWORD){modal.classList.remove('active');splash.classList.add('hidden');if(PLAYLIST.length){loadTrack(0);}setTimeout(()=>{musicBar.classList.add('visible');},800);}else{passErr.textContent='Esa no es nuestra llave ❤️';passInput.value='';}}
+passBtn.addEventListener('click',unlock);passInput.addEventListener('keydown',e=>{if(e.key==='Enter')unlock();});
 
 /* ════════════════════════════════
    PETALS
